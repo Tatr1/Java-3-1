@@ -1,0 +1,5 @@
+increase volume niddle data,5,6
+increase volume min data,0,1
+increase volume less min,-1,0
+increase volume more max,11,0
+increase volume max data,10,10
