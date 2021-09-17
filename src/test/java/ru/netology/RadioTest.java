@@ -9,86 +9,55 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class RadioTest {
 
     @Test
-    public void outMinVolume() {
+    public void itsCreateToZero() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(-1);
-        int actual = radio.getCurrentVolume();
-        int expected = 0;
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void outMaxVolume() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(11);
-        int actual = radio.getCurrentVolume();
-        int expected = 0;
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void outMaxWave() {
-        Radio radio = new Radio();
-        radio.setCurrentWave(10);
-        int actual = radio.getCurrentWave();
-        int expected = 0;
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void outMinWave() {
-        Radio radio = new Radio();
-        radio.setCurrentWave(-1);
-        int actual = radio.getCurrentWave();
-        int expected = 0;
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void itCreateAndWorks() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(5);
-        radio.setCurrentWave(5);
-        int actualV = radio.getCurrentVolume();
-        int actualW = radio.getCurrentWave();
-        int expected = 5;
-        assertEquals(expected, actualV);
-        assertEquals(expected, actualW);
+        assertEquals(0, radio.getCurrentVolume());
+        assertEquals(0, radio.getCurrentWave());
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/increaseVolumeData.csv")
-    void increaseVolume(String name, int setCurrentVolume, int expected) {
+    void increaseVolume(String name, int currentVolume, int expected) {
         Radio radio = new Radio();
-        radio.increaseVolume(setCurrentVolume);
+        radio.setCurrentVolume(currentVolume);
+        radio.getCurrentVolume();
+        radio.increaseVolume();
         int actual = radio.getCurrentVolume();
         assertEquals(expected, actual);
     }
 
+
     @ParameterizedTest
     @CsvFileSource(resources = "/decreaseVolumeData.csv")
-    void decreaseVolume(String name, int setCurrentVolume, int expected) {
+    void decreaseVolume(String name, int currentVolume, int expected) {
         Radio radio = new Radio();
-        radio.decreaseVolume(setCurrentVolume);
+        radio.setCurrentVolume(currentVolume);
+        radio.getCurrentVolume();
+        radio.decreaseVolume();
         int actual = radio.getCurrentVolume();
         assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/increaseWaveData.csv")
-    void increaseWave(String name, int setCurrentWase, int expected) {
+    void increaseWave(String name, int currentWave, int expected) {
         Radio radio = new Radio();
-        radio.increaseWave(setCurrentWase);
+        radio.setCurrentWave(currentWave);
+        radio.getCurrentWave();
+        radio.increaseWave();
         int actual = radio.getCurrentWave();
         assertEquals(expected, actual);
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/decreaseWaveData.csv")
-    void decreaseWave(String name, int setCurrentWase, int expected) {
+    void decreaseWave(String name, int currentWave, int expected) {
         Radio radio = new Radio();
-        radio.decreaseWave(setCurrentWase);
+        radio.setCurrentWave(currentWave);
+        radio.getCurrentWave();
+        radio.decreaseWave();
         int actual = radio.getCurrentWave();
         assertEquals(expected, actual);
     }
+
 }
