@@ -3,3 +3,5 @@ increase volume min data,0,1
 increase volume less min,-1,1
 increase volume more max,11,1
 increase volume max data,10,10
+increase volume before last,9,10
+increase volume second,1,2

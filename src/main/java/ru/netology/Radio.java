@@ -57,8 +57,7 @@ public class Radio {
     public void increaseWave() {
         if (currentWave < maxWave) {
             currentWave += 1;
-        }
-        if (currentWave == maxWave) {
+        } else {
             currentWave = minWave;
         }
     }
@@ -66,8 +65,7 @@ public class Radio {
     public void decreaseWave() {
         if (currentWave > minWave) {
             currentWave -= 1;
-        }
-        if (currentWave == minWave) {
+        } else {
             currentWave = maxWave;
         }
     }
